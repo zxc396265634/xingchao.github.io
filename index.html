@@ -1,12 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	xingchao
-	https://github.com/zxc396265634/xingchao.github.io.git
-	<p>123456</p>
-</body>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/jquery.rotatingSlideshow.css" />
+		<style type="text/css">
+			html,
+			body {
+				width: 100%;
+				margin: 0;
+			}
+			
+			#container div {
+				text-align: center;
+				height: 100px;
+				width: 100%;
+				font-size: 100px;
+			}
+			
+			ccc {
+				/*display: none;*/
+				position: absolute;
+				/*left: 50%;*/
+				/*transform: translate(-50%);*/
+				font-size: 50px;
+				color: white;
+				font-weight: bold;
+				top: 0;
+			}
+			
+			#container {
+				z-index: 1000;
+				position: absolute;
+				display: none;
+			}
+			
+			#container div {
+				z-index: -2;
+				position: absolute;
+			}
+			
+			#kkkk {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+			<div>装</div>
+			<div>比</div>
+			<div>王</div>
+			<div>闪</div>
+			<div>亮</div>
+			<div>登</div>
+			<div>场</div>
+			<div>！</div>
+			<div>！</div>
+			<div>！</div>
+
+			<ccc id='ccc'>
+				you are right ! that me !!
+			</ccc>
+
+		</div>
+		<div id="kkkk">
+			呵呵哈哈哈
+		</div>
+		<div class="rotating-slideshow">
+			<div id="slider-main" data-position="1" data-deg="0">
+				<div id="slider-btns" class="button">
+					<a id="pos1" href="#" class="pos1" data-position="1"></a>
+					<a id="pos2" href="#" class="pos2" data-position="4"></a>
+					<a id="pos3" href="#" class="pos3" data-position="3"></a>
+					<a id="pos4" href="#" class="pos4" data-position="2"></a>
+				</div>
+				<div class="slider-overlay">
+					<div class="active" data-position="1">
+						<h3>Different</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div data-position="2">
+						<h3>Creative</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div data-position="3">
+						<h3>Fancy</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div data-position="4">
+						<h3>Solutions</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+				<div class="slides">
+					<img class="active" src="images/slide1.jpg" data-position="1">
+					<img src="images/slide4.jpg" data-position="2">
+					<img src="images/slide3.jpg" data-position="3">
+					<img src="images/slide2.jpg" data-position="4">
+				</div>
+				<img class="spinner-btn" src="images/button.png" alt="">
+				<img class="spinner" src="images/slides-overlay.jpg" alt="">
+			</div>
+			<!--<audio id="slider-sound" preload="auto">
+				<source src="sound/sound.mp3"> 你的浏览器不支持HTML5 AUDIO元素。
+			</audio>-->
+		</div>
+
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.rotatingSlideshow.js"></script>
+	<script type="text/javascript" src='js/sketch.min.js'></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript">
+		//装比王
+		var divArr = container.querySelectorAll("div");
+
+		//		setTimeout(function a(){
+		//			location.reload();
+		//			a();
+		//		},100)
+		var i = 50;
+
+		for(i = 0; i < divArr.length; i++) {
+			divArr[i].style.backgroundColor = 'rgb(' + randFn(30, 255) + ',' + randFn(30, 255) + ',' + randFn(30, 255) + ')';
+			divArr[i].style.color = 'rgb(' + randFn(0, 255) + ',' + randFn(0, 255) + ',' + randFn(0, 255) + ')';
+			divArr[i].style.top = i * 100 + 'px';
+			divArr[i].onclick = function() {
+				this.style.backgroundColor = 'white';
+				//				this.style.display = 'none';
+			}
+		}
+
+		function randFn(max, min) {
+			return parseInt(Math.random() * (max - min + 1) + min);
+		}
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.rotating-slideshow').rotatingSlideshow({
+				sliderHolder: '#slider-main',
+				btnsHolder: '#slider-btns',
+				audioHolder: '#slider-sound',
+				auto: true,
+				autoSpeed: '6000'
+			});
+		});
+	</script>
+
 </html>
